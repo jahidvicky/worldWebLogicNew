@@ -54,7 +54,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Digital WebGuider Logo"
-              className="h-21 w-auto object-cover"
+              className="h-18 w-auto object-cover"
             />
           </NavLink>
 
@@ -790,6 +790,18 @@ const Header = () => {
             >
               Contact
             </NavLink>
+
+            <NavLink
+              to="/career"
+              className={({ isActive }) =>
+                `font-medium transition ${isActive
+                  ? "text-[#25baff]"
+                  : "text-[#020202] hover:text-[#25baff]"
+                }`
+              }
+            >
+              Career
+            </NavLink>
           </nav>
 
           {/* SOCIAL ICONS */}
@@ -831,232 +843,234 @@ const Header = () => {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-6 py-6 space-y-5">
-          <NavLink
-            to="/"
-            onClick={closeMobile}
-            className="block font-medium text-[#020202] hover:text-[#25baff]"
-          >
-            Home
-          </NavLink>
-
-          {/* ABOUT */}
-          <div>
-            <button
-              onClick={() => toggleSubMenu("about")}
-              className="w-full flex justify-between items-center font-medium text-[#020202]"
+      {
+        mobileOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 px-6 py-6 space-y-5">
+            <NavLink
+              to="/"
+              onClick={closeMobile}
+              className="block font-medium text-[#020202] hover:text-[#25baff]"
             >
-              About
-              <FaChevronDown
-                className={`transition ${openSubMenu === "about" ? "rotate-180" : ""}`}
-              />
-            </button>
+              Home
+            </NavLink>
 
-            {openSubMenu === "about" && (
-              <div className="ml-4 mt-3 space-y-2">
-                <NavLink
-                  to="/about/who-we-are"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Who We Are
-                </NavLink>
-                <NavLink
-                  to="/about/why-choose-us"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Why Digital WebGuider
-                </NavLink>
-              </div>
-            )}
-          </div>
+            {/* ABOUT */}
+            <div>
+              <button
+                onClick={() => toggleSubMenu("about")}
+                className="w-full flex justify-between items-center font-medium text-[#020202]"
+              >
+                About
+                <FaChevronDown
+                  className={`transition ${openSubMenu === "about" ? "rotate-180" : ""}`}
+                />
+              </button>
 
-          {/* SERVICES */}
-          <div>
-            <button
-              onClick={() => toggleSubMenu("services")}
-              className="w-full flex justify-between items-center font-medium text-[#020202]"
+              {openSubMenu === "about" && (
+                <div className="ml-4 mt-3 space-y-2">
+                  <NavLink
+                    to="/about/who-we-are"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Who We Are
+                  </NavLink>
+                  <NavLink
+                    to="/about/why-choose-us"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Why Digital WebGuider
+                  </NavLink>
+                </div>
+              )}
+            </div>
+
+            {/* SERVICES */}
+            <div>
+              <button
+                onClick={() => toggleSubMenu("services")}
+                className="w-full flex justify-between items-center font-medium text-[#020202]"
+              >
+                Services
+                <FaChevronDown
+                  className={`transition ${openSubMenu === "services" ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {openSubMenu === "services" && (
+                <div className="ml-4 mt-3 space-y-2">
+                  <NavLink
+                    to="/services/seo"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    SEO
+                  </NavLink>
+                  <NavLink
+                    to="/services/web-design"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Web Design
+                  </NavLink>
+                  <NavLink
+                    to="/services/web-development"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Web Development
+                  </NavLink>
+                  <NavLink
+                    to="/services/mobile-application-development"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Mobile Application Development
+                  </NavLink>
+                  <NavLink
+                    to="/services/social-media-marketing"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Social Media Marketing
+                  </NavLink>
+                  <NavLink
+                    to="/services/online-reputation-management"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Online Reputation Management
+                  </NavLink>
+                </div>
+              )}
+            </div>
+
+            {/* PLANS & PRICING */}
+            <div>
+              <button
+                onClick={() => toggleSubMenu("pricing")}
+                className="w-full flex justify-between items-center font-medium text-[#020202]"
+              >
+                Plans & Pricing
+                <FaChevronDown
+                  className={`transition ${openSubMenu === "pricing" ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {openSubMenu === "pricing" && (
+                <div className="ml-4 mt-3 space-y-2">
+                  <NavLink
+                    to="/pricing/seo-packages"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    SEO Services Packages
+                  </NavLink>
+                  <NavLink
+                    to="/pricing/seo-starter-pack"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Starter Pack
+                  </NavLink>
+                  <NavLink
+                    to="/pricing/smo-packages"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    SMO Services Packages
+                  </NavLink>
+                  <NavLink
+                    to="/pricing/ppc-packages"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    PPC Services Packages
+                  </NavLink>
+                  <NavLink
+                    to="/pricing/web-design-packages"
+                    onClick={closeMobile}
+                    className="block hover:text-[#25baff]"
+                  >
+                    Web Designing Packages
+                  </NavLink>
+                </div>
+              )}
+            </div>
+
+            <NavLink
+              to="/portfolio"
+              onClick={closeMobile}
+              className="block font-medium text-[#020202] hover:text-[#25baff]"
             >
-              Services
-              <FaChevronDown
-                className={`transition ${openSubMenu === "services" ? "rotate-180" : ""}`}
-              />
-            </button>
+              Portfolios
+            </NavLink>
 
-            {openSubMenu === "services" && (
-              <div className="ml-4 mt-3 space-y-2">
-                <NavLink
-                  to="/services/seo"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  SEO
-                </NavLink>
-                <NavLink
-                  to="/services/web-design"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Web Design
-                </NavLink>
-                <NavLink
-                  to="/services/web-development"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Web Development
-                </NavLink>
-                <NavLink
-                  to="/services/mobile-application-development"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Mobile Application Development
-                </NavLink>
-                <NavLink
-                  to="/services/social-media-marketing"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Social Media Marketing
-                </NavLink>
-                <NavLink
-                  to="/services/online-reputation-management"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Online Reputation Management
-                </NavLink>
-              </div>
-            )}
-          </div>
-
-          {/* PLANS & PRICING */}
-          <div>
-            <button
-              onClick={() => toggleSubMenu("pricing")}
-              className="w-full flex justify-between items-center font-medium text-[#020202]"
+            <NavLink
+              to="/contact"
+              onClick={closeMobile}
+              className="block font-medium text-[#020202] hover:text-[#25baff]"
             >
-              Plans & Pricing
-              <FaChevronDown
-                className={`transition ${openSubMenu === "pricing" ? "rotate-180" : ""}`}
-              />
-            </button>
+              Contact
+            </NavLink>
 
-            {openSubMenu === "pricing" && (
-              <div className="ml-4 mt-3 space-y-2">
-                <NavLink
-                  to="/pricing/seo-packages"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  SEO Services Packages
-                </NavLink>
-                <NavLink
-                  to="/pricing/seo-starter-pack"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Starter Pack
-                </NavLink>
-                <NavLink
-                  to="/pricing/smo-packages"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  SMO Services Packages
-                </NavLink>
-                <NavLink
-                  to="/pricing/ppc-packages"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  PPC Services Packages
-                </NavLink>
-                <NavLink
-                  to="/pricing/web-design-packages"
-                  onClick={closeMobile}
-                  className="block hover:text-[#25baff]"
-                >
-                  Web Designing Packages
-                </NavLink>
+            {/* MOBILE CONTACT + SOCIAL (BOTTOM) */}
+            <div className="border-t pt-6 space-y-4">
+              {/* EMAIL + TIME */}
+              <div className="space-y-2 text-sm text-[#020202]">
+                <div className="flex items-center gap-2">
+                  <span className="text-[#25baff]">✉</span>
+                  <a
+                    href="mailto:info@digitalwebguider.com"
+                    className="hover:text-[#a8d97c]"
+                  >
+                    info@digitalwebguider.com
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-[#25baff]">⏰</span>
+                  <span className="hover:text-[#a8d97c]">
+                    Mon – Fri: 10:00 AM – 07:00 PM
+                  </span>
+                </div>
               </div>
-            )}
-          </div>
 
-          <NavLink
-            to="/portfolio"
-            onClick={closeMobile}
-            className="block font-medium text-[#020202] hover:text-[#25baff]"
-          >
-            Portfolios
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            onClick={closeMobile}
-            className="block font-medium text-[#020202] hover:text-[#25baff]"
-          >
-            Contact
-          </NavLink>
-
-          {/* MOBILE CONTACT + SOCIAL (BOTTOM) */}
-          <div className="border-t pt-6 space-y-4">
-            {/* EMAIL + TIME */}
-            <div className="space-y-2 text-sm text-[#020202]">
-              <div className="flex items-center gap-2">
-                <span className="text-[#25baff]">✉</span>
+              {/* SOCIAL ICONS */}
+              <div className="flex gap-6 text-xl text-[#020202]">
                 <a
-                  href="mailto:info@digitalwebguider.com"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25baff]"
+                >
+                  <FaFacebookF />
+                </a>
+
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#a8d97c]"
                 >
-                  info@digitalwebguider.com
+                  <FaInstagram />
+                </a>
+
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25baff]"
+                >
+                  <FaLinkedinIn />
                 </a>
               </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-[#25baff]">⏰</span>
-                <span className="hover:text-[#a8d97c]">
-                  Mon – Fri: 10:00 AM – 07:00 PM
-                </span>
-              </div>
-            </div>
-
-            {/* SOCIAL ICONS */}
-            <div className="flex gap-6 text-xl text-[#020202]">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#25baff]"
-              >
-                <FaFacebookF />
-              </a>
-
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#a8d97c]"
-              >
-                <FaInstagram />
-              </a>
-
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#25baff]"
-              >
-                <FaLinkedinIn />
-              </a>
             </div>
           </div>
-        </div>
-      )}
-    </header>
+        )
+      }
+    </header >
   );
 };
 

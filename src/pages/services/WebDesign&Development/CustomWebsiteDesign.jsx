@@ -15,9 +15,8 @@ import { FaRankingStar } from "react-icons/fa6";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { MdOutlineAutoGraph } from "react-icons/md";
 import { SiWoocommerce } from "react-icons/si";
-import { FaShopify } from "react-icons/fa6";
+import { FaShopify, FaStore } from "react-icons/fa6";
 import { SiJoomla } from "react-icons/si";
-import { SiMagento } from "react-icons/si";
 import {
   FaBuilding,
   FaRocket,
@@ -726,7 +725,7 @@ radial-gradient(circle_at_80%_80%,rgba(168,217,124,0.2),transparent_45%)]
                 text: "WordPress powers millions of websites worldwide because of its flexibility and powerful ecosystem. Whether you need a blog, business site, or portfolio, we build fully customized WordPress websites with tailored themes, plugins, and features—designed to match your brand, support your goals, and scale as you grow.",
               },
               {
-                icon: SiMagento,
+                icon: FaStore,
                 head: "Magento Development Services",
                 text: "Magento is a powerful eCommerce platform built for large-scale and high-growth online businesses. We develop fully customized Magento stores with advanced features, seamless integrations, and scalable architecture—helping you manage complex inventories, enhance customer experiences, and grow your online store with confidence.",
               },

@@ -76,7 +76,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-[#f5fbff] via-white to-[#eef7ff]">
+    <div className="w-full bg-[#0b0b0c]">
 
       {/* CONTACT FORM */}
 
@@ -84,18 +84,18 @@ export default function ContactUs() {
 
         <div className="text-center mb-12">
           <h2 className="text-5xl font-extrabold tracking-tight">
-            <span className="text-black">Let’s </span>
+            <span className="text-white">Let’s </span>
             <span className="text-[#25baff]">Connect</span>
           </h2>
 
-          <p className="text-gray-500 mt-4 text-lg">
+          <p className="text-gray-400 mt-4 text-lg">
             Have a project in mind? We’d love to hear from you.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="grid md:grid-cols-2 gap-6 bg-white p-10 rounded-3xl border border-[#25baff]/20shadow-[0_10px_40px_rgba(37,186,255,0.4)] hover:shadow-[0_15px_50px_rgba(37,186,255,0.5)] transition-all duration-300"
+          className="grid md:grid-cols-2 gap-6 bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-[#25baff]/20 shadow-[0_10px_40px_rgba(37,186,255,0.15)] hover:shadow-[0_15px_50px_rgba(37,186,255,0.25)] transition-all duration-300"
         >
 
           {/* Name */}
@@ -108,11 +108,11 @@ export default function ContactUs() {
               onChange={handleChange}
               required
               placeholder=" "
-              className="peer w-full border border-gray-300 rounded-xl p-4 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
             />
 
             <label
-              className="absolute left-4 -top-2 text-xs text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-white px-1 transition-all"
+              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
             >
               Full Name*
             </label>
@@ -128,11 +128,11 @@ export default function ContactUs() {
               onChange={handleChange}
               required
               placeholder=" "
-              className="peer w-full border border-gray-300 rounded-xl p-4 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
             />
 
             <label
-              className="absolute left-4 -top-2 text-xs text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-white px-1 transition-all"
+              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
             >
               Email Address*
             </label>
@@ -153,11 +153,11 @@ export default function ContactUs() {
               }}
               required
               placeholder=" "
-              className="peer w-full border border-gray-300 rounded-xl p-4 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
             />
 
             <label
-              className="absolute left-4 -top-2 text-xs text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-white px-1 transition-all"
+              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
             >
               Phone Number*
             </label>
@@ -172,11 +172,11 @@ export default function ContactUs() {
               value={formData.website}
               onChange={handleChange}
               placeholder=" "
-              className="peer w-full border border-gray-300 rounded-xl p-4 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
             />
 
             <label
-              className="absolute left-4 -top-2 text-xs text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-white px-1 transition-all"
+              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
             >
               Website
             </label>
@@ -192,11 +192,11 @@ export default function ContactUs() {
               onChange={handleChange}
               required
               placeholder=" "
-              className="peer w-full border border-gray-300 rounded-xl p-4 bg-white/90 focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
             />
 
             <label
-              className="absolute left-4 -top-2 text-xs text-gray-500 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-white px-1 transition-all"
+              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
             >
               Write Message*
             </label>
@@ -205,7 +205,7 @@ export default function ContactUs() {
           <div className="md:col-span-2 text-center mt-4">
             <button
               type="submit"
-              className="bg-[#25baff] hover:bg-[#1aa7e6] text-white px-10 py-3 rounded-full font-semibold tracking-wide shadow-md hover:shadow-xl transition duration-300"
+              className="bg-gradient-to-r from-[#25baff] to-[#0a8fd6] hover:shadow-lg hover:shadow-[#25baff]/30 text-white px-10 py-3 rounded-full font-semibold tracking-wide shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               SEND MESSAGE
             </button>
@@ -218,7 +218,7 @@ export default function ContactUs() {
 
       <section className="relative w-[85%] mx-auto pb-20">
 
-        <div className="grid md:grid-cols-2 grid-cols-1 rounded-2xl overflow-hidden shadow-xl">
+        <div className="grid md:grid-cols-2 grid-cols-1 rounded-2xl overflow-hidden shadow-xl border border-white/10">
 
           <div className="h-[500px] w-full">
             <iframe
@@ -243,7 +243,7 @@ export default function ContactUs() {
 
         </div>
 
-        <div className="absolute bottom-45 left-1/2 transform -translate-x-1/2 bg-[#0b3253] text-white p-6 rounded-2xl shadow-2xl w-[85%] md:w-[330px] backdrop-blur-sm border border-white/10">
+        <div className="absolute bottom-45 left-1/2 transform -translate-x-1/2 bg-[#111]/90 text-white p-6 rounded-2xl shadow-[0_0_30px_rgba(37,186,255,0.15)] w-[85%] md:w-[330px] backdrop-blur-sm border border-[#25baff]/20">
 
           <h2 className="text-xl font-semibold mb-5 border-b border-white/20 pb-2">
             Head Office

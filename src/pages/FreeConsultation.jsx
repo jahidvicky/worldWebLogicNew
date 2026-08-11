@@ -143,7 +143,7 @@ export default function FreeConsultation() {
             // ✅ Then show success alert
             await Swal.fire({
                 icon: "success",
-                title: "Booking Confirmed 🎉",
+                title: "Booking Confirmed",
                 text: "We'll contact you shortly!",
                 confirmButtonColor: "#25baff",
             });

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {
     SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiMongodb,
     SiTypescript, SiFirebase, SiDocker, SiJavascript,
-    SiHtml5, SiCss3, SiBootstrap, SiWordpress, SiShopify, SiExpress, SiWoocommerce, SiMysql, SiPhp
+    SiHtml5, SiCss, SiBootstrap, SiWordpress, SiShopify, SiExpress, SiWoocommerce, SiMysql, SiPhp
 } from "react-icons/si";
 import { FaAws, FaWordpressSimple, FaLaravel } from "react-icons/fa6";
 import { TbApi } from "react-icons/tb";
@@ -33,7 +33,7 @@ const techIconMap = {
     "JS": { icon: SiJavascript, color: "#F7DF1E", name: "JavaScript" },
     "HTML": { icon: SiHtml5, color: "#E34F26", name: "HTML5" },
     "HTML5": { icon: SiHtml5, color: "#E34F26", name: "HTML5" },
-    "CSS": { icon: SiCss3, color: "#1572B6", name: "CSS3" },
+    "CSS": { icon: SiCss, color: "#1572B6", name: "CSS3" },
     "Bootstrap": { icon: SiBootstrap, color: "#7952B3", name: "Bootstrap" },
     "WordPress": { icon: SiWordpress, color: "#21759B", name: "WordPress" },
     "Shopify": { icon: SiShopify, color: "#7AB55C", name: "Shopify" },

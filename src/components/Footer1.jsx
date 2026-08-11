@@ -141,7 +141,7 @@ export default function Footer1() {
                     {/* COLUMN 1 */}
                     <div className="p-6 rounded-2xl bg-gradient-to-br from-[#111] to-[#050505] border border-violet-500/20 shadow-[0_0_30px_rgba(139,92,246,0.15)]">
                         <Link to="/">
-                            <img src={logo} alt="logo" className="h-20 w-80 object-cover" />
+                            <img src={logo} alt="logo" className="h-20 w-auto object-contain" />
                         </Link>
 
                         <p className="text-sm text-white mt-4">
@@ -184,7 +184,8 @@ export default function Footer1() {
                             { name: "Why Choose Us", path: "/about/why-choose-us" },
                             { name: "Projects", path: "/projects" },
                             { name: "Pricing", path: "/pricing/seo-packages" },
-                            { name: "Contact Us", path: "/contact" }
+                            { name: "Contact Us", path: "/contact" },
+                            { name: "Career", path: "/career" }
                         ]}
                     />
 

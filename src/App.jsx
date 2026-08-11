@@ -140,6 +140,7 @@ import FreeConsultation from "./pages/FreeConsultation";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import CookiePolicy from "./pages/CookiePolicy";
+import Careers from "./pages/Careers";
 
 
 function App() {
@@ -713,6 +714,7 @@ function App() {
 
           {/* CONTACT */}
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/career" element={<Careers />} />
           <Route path="/free-consultation" element={<FreeConsultation />} />
           <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
