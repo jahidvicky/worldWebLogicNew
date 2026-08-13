@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import {
   FaPhoneAlt,
@@ -11,8 +11,23 @@ import image from "../assets/building.jpg";
 import API from "../api/API";
 import Swal from "sweetalert2";
 
-export default function ContactUs() {
+// Shared classes so every field (including browser-autofilled ones) stays
+// dark-themed, keeps white text, and shows the floating label correctly.
+const inputClass =
+  "peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white " +
+  "focus:outline-none focus:ring-2 focus:ring-[#25baff] transition " +
+  "[&:-webkit-autofill]:[-webkit-text-fill-color:#ffffff] " +
+  "[&:-webkit-autofill]:[transition:background-color_9999s_ease-in-out_0s] " +
+  "[&:-webkit-autofill]:[box-shadow:inset_0_0_0px_1000px_rgba(0,0,0,0.55)] " +
+  "[&:autofill]:[-webkit-text-fill-color:#ffffff]";
 
+const labelClass =
+  "absolute left-4 -top-2 text-xs text-[#25baff] bg-[#111] px-1 transition-all " +
+  "peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 " +
+  "peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] " +
+  "peer-autofill:-top-2 peer-autofill:text-xs";
+
+export default function ContactUs() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,12 +36,35 @@ export default function ContactUs() {
     message: "",
   });
 
+  // One ref per field so clicking anywhere inside its wrapper (padding,
+  // label, empty space) focuses the actual input/textarea.
+  const fullNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const websiteRef = useRef(null);
+  const messageRef = useRef(null);
+
+  const focusField = (ref) => (e) => {
+    // Don't steal focus if the user actually clicked the input itself,
+    // or clicked a link/button inside the wrapper.
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    ref.current?.focus();
+  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleAnimationStart = (e) => {
+    if (e.animationName === "onAutoFillStart") {
+      setFormData((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -78,6 +116,13 @@ export default function ContactUs() {
   return (
     <div className="w-full bg-[#0b0b0c]">
 
+      {/* Autofill keyframe hook: fires a no-op animation whenever Chrome/Edge/Safari
+          autofills a field, which we listen for via onAnimationStart above. */}
+      <style>{`
+        @keyframes onAutoFillStart { from {} to {} }
+        input:-webkit-autofill { animation-name: onAutoFillStart; }
+      `}</style>
+
       {/* CONTACT FORM */}
 
       <section className="max-w-4xl mx-auto px-6 py-20">
@@ -100,48 +145,54 @@ export default function ContactUs() {
 
           {/* Name */}
 
-          <div className="relative">
+          <div className="relative cursor-text" onClick={focusField(fullNameRef)}>
             <input
+              ref={fullNameRef}
+              id="fullName"
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
+              onAnimationStart={handleAnimationStart}
+              autoComplete="name"
               required
               placeholder=" "
-              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className={inputClass}
             />
 
-            <label
-              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
-            >
+            <label htmlFor="fullName" className={labelClass}>
               Full Name*
             </label>
           </div>
 
           {/* Email */}
 
-          <div className="relative">
+          <div className="relative cursor-text" onClick={focusField(emailRef)}>
             <input
+              ref={emailRef}
+              id="email"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onAnimationStart={handleAnimationStart}
+              autoComplete="email"
               required
               placeholder=" "
-              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className={inputClass}
             />
 
-            <label
-              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
-            >
+            <label htmlFor="email" className={labelClass}>
               Email Address*
             </label>
           </div>
 
           {/* Phone */}
 
-          <div className="relative">
+          <div className="relative cursor-text" onClick={focusField(phoneRef)}>
             <input
+              ref={phoneRef}
+              id="phone"
               type="tel"
               name="phone"
               value={formData.phone}
@@ -151,53 +202,55 @@ export default function ContactUs() {
                   setFormData({ ...formData, phone: value });
                 }
               }}
+              onAnimationStart={handleAnimationStart}
+              autoComplete="tel"
               required
               placeholder=" "
-              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className={inputClass}
             />
 
-            <label
-              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
-            >
+            <label htmlFor="phone" className={labelClass}>
               Phone Number*
             </label>
           </div>
 
           {/* Website */}
 
-          <div className="relative">
+          <div className="relative cursor-text" onClick={focusField(websiteRef)}>
             <input
+              ref={websiteRef}
+              id="website"
               type="text"
               name="website"
               value={formData.website}
               onChange={handleChange}
+              onAnimationStart={handleAnimationStart}
+              autoComplete="url"
               placeholder=" "
-              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className={inputClass}
             />
 
-            <label
-              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
-            >
+            <label htmlFor="website" className={labelClass}>
               Website
             </label>
           </div>
 
           {/* Message */}
 
-          <div className="relative md:col-span-2">
+          <div className="relative cursor-text md:col-span-2" onClick={focusField(messageRef)}>
             <textarea
+              ref={messageRef}
+              id="message"
               rows="4"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
               placeholder=" "
-              className="peer w-full border border-white/15 rounded-xl p-4 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-[#25baff] transition"
+              className={inputClass}
             />
 
-            <label
-              className="absolute left-4 -top-2 text-xs text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#25baff] bg-[#111] px-1 transition-all"
-            >
+            <label htmlFor="message" className={labelClass}>
               Write Message*
             </label>
           </div>

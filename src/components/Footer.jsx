@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo2.png";
+import logo from "../assets/DWGlogo.png";
 import {
     FaInstagram,
     FaFacebookF,
@@ -46,7 +46,7 @@ export default function Footer() {
                             <img
                                 src={logo}
                                 alt="Digital WebGuider"
-                                className="h-20 w-80 object-cover cursor-pointer"
+                                className="h-40 w-auto object-cover cursor-pointer"
                             />
                         </Link>
 
@@ -136,7 +136,7 @@ cursor-pointer"
                     <FooterColumn
                         title="Services"
                         links={[
-                            { name: "Search Engine Optimization (SEO)", path: "/services/seo" },
+                            { name: "Search Engine Optimization", path: "/services/seo" },
                             { name: "Small Business SEO", path: "/services/small-business-seo" },
                             { name: "Local SEO Services", path: "/services/local-seo-services" },
                             { name: "E-commerce SEO", path: "/services/ecommerce-seo" },

@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 /* ========= GLOBAL COMPONENTS ========= */
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 /* ========= PAGES ========= */
 import Home from "./pages/Home";
@@ -143,31 +143,45 @@ import CookiePolicy from "./pages/CookiePolicy";
 import Careers from "./pages/Careers";
 
 
-function App() {
+//----------------------dashboard-------------------
+import AdminLogin from "./dashboard/AdminLogin";
+
+
+// Routes that should render on their own — no header, top info bar,
+// footer, or the site-wide background video behind them.
+const BARE_ROUTES = ["/login"];
+
+function AppContent() {
+  const location = useLocation();
+  const isBareRoute = BARE_ROUTES.some((path) => location.pathname.startsWith(path));
+
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <ScrollProgress />
       {/* <SplashCursor /> */}
-      <div className="fixed inset-0 -z-10">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
 
-        {/* DARK OVERLAY FOR READABILITY */}
-        <div className="absolute inset-0 bg-black/70"></div>
-      </div>
+      {!isBareRoute && (
+        <div className="fixed inset-0 -z-10">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+
+          {/* DARK OVERLAY FOR READABILITY */}
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+      )}
 
       {/* ================= SITE CONTENT ================= */}
       <div className="relative z-10">
-        <TopInfoBar />
-        <Header />
+        {!isBareRoute && <TopInfoBar />}
+        {!isBareRoute && <Header />}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -717,11 +731,20 @@ function App() {
           <Route path="/career" element={<Careers />} />
           <Route path="/free-consultation" element={<FreeConsultation />} />
           <Route path="/portfolio" element={<Portfolio />} />
+
+          <Route path="/login" element={<AdminLogin />} />
         </Routes>
 
-        {/* <Footer /> */}
-        <Footer1 />
+        {!isBareRoute && <Footer1 />}
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

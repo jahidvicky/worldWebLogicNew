@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "../assets/logo2.png";
+import logo from "../assets/DWGlogo.png";
 import { FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 /* TYPEWRITER */
@@ -141,7 +141,7 @@ export default function Footer1() {
                     {/* COLUMN 1 */}
                     <div className="p-6 rounded-2xl bg-gradient-to-br from-[#111] to-[#050505] border border-violet-500/20 shadow-[0_0_30px_rgba(139,92,246,0.15)]">
                         <Link to="/">
-                            <img src={logo} alt="logo" className="h-20 w-auto object-contain" />
+                            <img src={logo} alt="footer-logo" className="h-22 w-auto object-cover" />
                         </Link>
 
                         <p className="text-sm text-white mt-4">
